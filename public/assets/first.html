@@ -1,0 +1,84 @@
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@100..900&family=Orbitron:wght@500&display=swap');
+    input {
+        margin: 3px 5px;
+    }
+    body {
+        background-image: url("images/giphy.gif");
+        background-size: cover;
+        background-attachment: fixed;
+    }
+</style>
+<body>
+    <div class="content" style="margin: 10px 10px;">
+        <section style="display: none;">
+            <table bgcolor="lightskyblue" border="1" width="30%" style="text-align: left; margin: 10px 10px;">
+                <tr>
+                    <th>
+                        <input type="checkbox" name="checkAll" id="checkAll" class="checkAll" onchange="checks()">
+                        <label for="checkAll">Check All</label>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="check1" id="check1" class="check">
+                        <label for="check1">User 1</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="check2" id="check2" class="check">
+                        <label for="check2">User 2</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="check3" id="check3" class="check">
+                        <label for="check3">User 3</label>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- This is the main Content of the first page! (About Me) -->
+        <h1 style="font-weight: bold; font-family: Verdana, Geneva, Tahoma, sans-serif;">About Me</h1>
+        <div class="hLine" style="background-color: black; height: 2px; width: 100%;margin: -20px 0px 20px 0px;"></div>
+        <font style="color: blue; font-size: 33px;">Hi, I'm <font style="color: Red; font-weight: bolder; font-style: normal; font-family: 'Orbitron', serif; text-shadow: 0px 0px 3px black;">SAJJAD HOSSAIN.</font></font><br><br>
+        <img src="images/new.png" alt="Profile" width="250px" height="250px">
+        <h1 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">I'm a <b style="font-family: 'Orbitron', serif; color: green; text-shadow: 0px 0px 3px white;">Web Developer...</b></h1>
+        <p class="about" style="color: navy; font-size: 18px; font-family: Arial, Helvetica, sans-serif">
+            <i class='bx bx-check-square' style="color: darkgreen; font-size: 18px;"></i>
+            I am an experienced and have full of knowledge about <font color="magenta"><b>HTML, CSS, JavaScript, PHP, and MySQL</b></font>. <br>
+            <i class='bx bx-check-square' style="color: darkgreen; font-size: 18px;"></i>
+            I can frequently use frameworks such as <font color="magenta"><b>Laravel, WordPress, and Node.js</font></b> as <i style="color: blueviolet">Front-End</i> and <i style="color: blueviolet;">Back-End</i> Developer. <br>
+            <i class='bx bx-check-square' style="color: darkgreen; font-size: 18px;"></i>
+        </p>
+    </div>
+</body>
+
+<script type="text/javascript">
+    console.log("first.html");
+    let checkAll = document.querySelector('.checkAll');
+    let check = document.querySelectorAll('.check');
+    function checks() {
+        const isChecked = checkAll.checked;
+        check.forEach(each => {
+            each.checked = isChecked;
+        });
+    }
+    check.forEach(each => {
+        each.addEventListener('change', () => {
+            const anyUnchecked = Array.from(check).some(checkbox => !checkbox.checked);
+            if (anyUnchecked) {
+                checkAll.checked = false;
+            }
+            const anyChecked = Array.from(check).every(checkbox => checkbox.checked);
+            if (anyChecked) {
+                checkAll.checked = true;
+            }
+        });
+    });
+</script>
